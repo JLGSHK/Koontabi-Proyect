@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9280FEF0-BC10-45A2-AD14-16CD863BE795}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Koontabi.BusinessLogic</RootNamespace>
+    <AssemblyName>Koontabi.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BodegaBL\BodegaBL.cs" />
+    <Compile Include="BodegaBL\IBodegaBL.cs" />
+    <Compile Include="CategoryBL\CategoryBL.cs" />
+    <Compile Include="CategoryBL\ICategoryBL.cs" />
+    <Compile Include="CustomerBL\CustomerBL.cs" />
+    <Compile Include="CustomerBL\ICustomerBL.cs" />
+    <Compile Include="DBInitializerBL\DBContextInitializerBL.cs" />
+    <Compile Include="EmployeeBL\EmployeeBL.cs" />
+    <Compile Include="EmployeeBL\IEmployeeBL.cs" />
+    <Compile Include="IGenericBL.cs" />
+    <Compile Include="InvoiceBL\IInvoiceBL.cs" />
+    <Compile Include="InvoiceBL\InvoiceBL.cs" />
+    <Compile Include="KardexBL\IKardexBL.cs" />
+    <Compile Include="KardexBL\KardexBL.cs" />
+    <Compile Include="MunicipalityBL\IMunicipalityBL.cs" />
+    <Compile Include="MunicipalityBL\MunicipalityBL.cs" />
+    <Compile Include="PaidAccountsBL\IPaidAccountsBL.cs" />
+    <Compile Include="PaidAccountsBL\PaidAccountsBL.cs" />
+    <Compile Include="ProductBL\IProductBL.cs" />
+    <Compile Include="ProductBL\ProductBL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvinceBL\IProvinceBL.cs" />
+    <Compile Include="ProvinceBL\ProvinceBL.cs" />
+    <Compile Include="ReportBL\IReportBL.cs" />
+    <Compile Include="ReportBL\ReportBL.cs" />
+    <Compile Include="TaxBL\ITaxBL.cs" />
+    <Compile Include="TaxBL\TaxBL.cs" />
+    <Compile Include="TypeOfPayBL\ITypeOfPayBL.cs" />
+    <Compile Include="TypeOfPayBL\TypeOfPayBL.cs" />
+    <Compile Include="UnitBL\IUnitBL.cs" />
+    <Compile Include="UnitBL\UnitBL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Koontabi.Domain\Koontabi.Domain.csproj">
+      <Project>{607e3cb6-4c6e-429d-8daf-183dafbc3f38}</Project>
+      <Name>Koontabi.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Koontabi.Repository\Koontabi.Repository.csproj">
+      <Project>{8799bdf8-e2df-4db6-8098-ff3ab2936013}</Project>
+      <Name>Koontabi.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

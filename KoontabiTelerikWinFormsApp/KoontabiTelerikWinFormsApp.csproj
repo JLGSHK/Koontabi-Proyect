@@ -1,0 +1,826 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D24E2C4D-8B82-4C24-82BB-1FA10A2744BE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KoontabiTelerikWinFormsApp</RootNamespace>
+    <AssemblyName>Josias IndustriaL SRL Sistema</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\JLGSHK\Desktop\JOEL\LastVersion\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Josias Industrial SRL</ProductName>
+    <PublisherName>JS SOLUTIONS %28JORGE LUIS G. S.%29</PublisherName>
+    <SuiteName>JS SOLUTIONS</SuiteName>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F364C1F01BF243AAE493D9C74F2C424DAF4BE8A6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>KoontabiTelerikWinFormsApp.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationIcon>IconTaskBar.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.ReportViewer.WinForms, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.ChartView, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.PivotGrid, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.RadDock, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.RichTextBox, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.RichTextEditor, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.Themes.Office2007Silver, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.UI, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikData, Version=2014.3.1021.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BodegaRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BodegaRadForm.Designer.cs">
+      <DependentUpon>BodegaRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryRadForm.Designer.cs">
+      <DependentUpon>CategoryRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerRadForm.Designer.cs">
+      <DependentUpon>CustomerRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDialogToReport\DisplayAllSalesByCustomerRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDialogToReport\DisplayAllSalesByCustomerRadForm.Designer.cs">
+      <DependentUpon>DisplayAllSalesByCustomerRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDialogToReport\GetInvoiceByZoneRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDialogToReport\GetInvoiceByZoneRadForm.Designer.cs">
+      <DependentUpon>GetInvoiceByZoneRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDialogToReport\ReportMonthSalesRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDialogToReport\ReportMonthSalesRadForm.Designer.cs">
+      <DependentUpon>ReportMonthSalesRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryReportRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryReportRadForm.Designer.cs">
+      <DependentUpon>InventoryReportRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceRadForm.Designer.cs">
+      <DependentUpon>InvoiceRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\LoginRadForm.Designer.cs">
+      <DependentUpon>LoginRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCategoryRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCategoryRadForm.Designer.cs">
+      <DependentUpon>NewCategoryRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewInvoiceRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewInvoiceRadForm.Designer.cs">
+      <DependentUpon>NewInvoiceRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewProductRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewProductRadForm.Designer.cs">
+      <DependentUpon>NewProductRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewUnitRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewUnitRadForm.Designer.cs">
+      <DependentUpon>NewUnitRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OldMainRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OldMainRadForm.Designer.cs">
+      <DependentUpon>OldMainRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDialogToReport\ReportSalesDateRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDialogToReport\ReportSalesDateRadForm.Designer.cs">
+      <DependentUpon>ReportSalesDateRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaidAccountsRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaidAccountsRadForm.Designer.cs">
+      <DependentUpon>PaidAccountsRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaidAccountSubModule\CustomerListRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaidAccountSubModule\CustomerListRadForm.Designer.cs">
+      <DependentUpon>CustomerListRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaidAccountSubModule\DoingPaymentRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaidAccountSubModule\DoingPaymentRadForm.Designer.cs">
+      <DependentUpon>DoingPaymentRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaidAccountSubModule\InvoiceNumberRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaidAccountSubModule\InvoiceNumberRadForm.Designer.cs">
+      <DependentUpon>InvoiceNumberRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewForm\DisplayAllInvoiceByMonthRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewForm\DisplayAllInvoiceByMonthRadForm.Designer.cs">
+      <DependentUpon>DisplayAllInvoiceByMonthRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewForm\DisplayAllSalesByCustomerRadFormReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewForm\DisplayAllSalesByCustomerRadFormReportView.Designer.cs">
+      <DependentUpon>DisplayAllSalesByCustomerRadFormReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewForm\DisplayAllSalesRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewForm\DisplayAllSalesRadForm.Designer.cs">
+      <DependentUpon>DisplayAllSalesRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewForm\GetInvoiceByZoneRadFormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewForm\GetInvoiceByZoneRadFormReport.Designer.cs">
+      <DependentUpon>GetInvoiceByZoneRadFormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewForm\InvoiceReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewForm\InvoiceReportView.Designer.cs">
+      <DependentUpon>InvoiceReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportViewForm\ProductsInventoryRadFormReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewForm\ProductsInventoryRadFormReportView.Designer.cs">
+      <DependentUpon>ProductsInventoryRadFormReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchProductRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchProductRadForm.Designer.cs">
+      <DependentUpon>SearchProductRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchRadForm.Designer.cs">
+      <DependentUpon>SearchRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KardexRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KardexRadForm.Designer.cs">
+      <DependentUpon>KardexRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Splash\KoontabiSplashRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash\KoontabiSplashRadForm.Designer.cs">
+      <DependentUpon>KoontabiSplashRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnitRadForm.Designer.cs">
+      <DependentUpon>UnitRadForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BodegaRadForm.resx">
+      <DependentUpon>BodegaRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoryRadForm.resx">
+      <DependentUpon>CategoryRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRadForm.resx">
+      <DependentUpon>CustomerRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDialogToReport\DisplayAllSalesByCustomerRadForm.resx">
+      <DependentUpon>DisplayAllSalesByCustomerRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDialogToReport\GetInvoiceByZoneRadForm.resx">
+      <DependentUpon>GetInvoiceByZoneRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDialogToReport\ReportMonthSalesRadForm.resx">
+      <DependentUpon>ReportMonthSalesRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryReportRadForm.resx">
+      <DependentUpon>InventoryReportRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceRadForm.resx">
+      <DependentUpon>InvoiceRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LoginRadForm.resx">
+      <DependentUpon>LoginRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCategoryRadForm.resx">
+      <DependentUpon>NewCategoryRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewInvoiceRadForm.resx">
+      <DependentUpon>NewInvoiceRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewProductRadForm.resx">
+      <DependentUpon>NewProductRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewUnitRadForm.resx">
+      <DependentUpon>NewUnitRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OldMainRadForm.resx">
+      <DependentUpon>OldMainRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="MainRadRibbonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainRadRibbonForm.Designer.cs">
+      <DependentUpon>MainRadRibbonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCustomerRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCustomerRadForm.Designer.cs">
+      <DependentUpon>NewCustomerRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductRadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductRadForm.Designer.cs">
+      <DependentUpon>ProductRadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainRadRibbonForm.resx">
+      <DependentUpon>MainRadRibbonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCustomerRadForm.resx">
+      <DependentUpon>NewCustomerRadForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaidAccountsRadForm.resx">
+      <DependentUpon>PaidAccountsRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaidAccountSubModule\CustomerListRadForm.resx">
+      <DependentUpon>CustomerListRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaidAccountSubModule\DoingPaymentRadForm.resx">
+      <DependentUpon>DoingPaymentRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaidAccountSubModule\InvoiceNumberRadForm.resx">
+      <DependentUpon>InvoiceNumberRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductRadForm.resx">
+      <DependentUpon>ProductRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FormDialogToReport\ReportSalesDateRadForm.resx">
+      <DependentUpon>ReportSalesDateRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewForm\DisplayAllInvoiceByMonthRadForm.resx">
+      <DependentUpon>DisplayAllInvoiceByMonthRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewForm\DisplayAllSalesByCustomerRadFormReportView.resx">
+      <DependentUpon>DisplayAllSalesByCustomerRadFormReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewForm\DisplayAllSalesRadForm.resx">
+      <DependentUpon>DisplayAllSalesRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewForm\GetInvoiceByZoneRadFormReport.resx">
+      <DependentUpon>GetInvoiceByZoneRadFormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewForm\InvoiceReportView.resx">
+      <DependentUpon>InvoiceReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewForm\ProductsInventoryRadFormReportView.resx">
+      <DependentUpon>ProductsInventoryRadFormReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchProductRadForm.resx">
+      <DependentUpon>SearchProductRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchRadForm.resx">
+      <DependentUpon>SearchRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KardexRadForm.resx">
+      <DependentUpon>KardexRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash\KoontabiSplashRadForm.resx">
+      <DependentUpon>KoontabiSplashRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitRadForm.resx">
+      <DependentUpon>UnitRadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <!--sirinie -->
+    <None Include="Resources\wheel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add-Male-User.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Remove-Male-User.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit-Male-User.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search-Male-User.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accept-Male-User.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male-User-Warning.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\status.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\packing.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\order-history.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory-maintenance.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\packing1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gealogy-view.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Briefcase.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\utilities_folder_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\utilities_folder_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\utilities_folder_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\utilities_folder_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Package-Accept.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Update.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sales-report.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KoonException\KoonException.csproj">
+      <Project>{28c1db78-2d95-46bf-916a-4ea159526373}</Project>
+      <Name>KoonException</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Koontabi.BusinessLogic\Koontabi.BusinessLogic.csproj">
+      <Project>{9280fef0-bc10-45a2-ad14-16cd863be795}</Project>
+      <Name>Koontabi.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Koontabi.Domain\Koontabi.Domain.csproj">
+      <Project>{607e3cb6-4c6e-429d-8daf-183dafbc3f38}</Project>
+      <Name>Koontabi.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Koontabi.Helpers\Koontabi.Helpers.csproj">
+      <Project>{b39cdf51-f124-4a20-ba87-9f0dbeeb7b79}</Project>
+      <Name>Koontabi.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Koontabi.Reporting\Koontabi.Reporting.csproj">
+      <Project>{b68dd7b5-8a4a-41e4-a53e-e7f320cdaa17}</Project>
+      <Name>Koontabi.Reporting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\earning-statements.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sales-by-Payment-Method-rep.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchDatabase.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoEmpresa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoEmpresa1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pay.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\moneypay.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping_add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept-database.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sin título-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ultima.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginOficial.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buttonHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgroundApp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoPequenio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ultimoLogoMainForm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseForm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseForm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="IconTaskBar.ico" />
+    <None Include="Resources\loginOficial1.png" />
+    <None Include="Resources\alert.ico" />
+    <None Include="Resources\AlertWarning.ico" />
+    <None Include="Resources\unit.ico" />
+    <None Include="Resources\unit.png" />
+    <None Include="Resources\PayAccont.ico" />
+    <None Include="Resources\ZONE.png" />
+    <None Include="Resources\CloseForm3.png" />
+    <None Include="Resources\1447974141_Log Out.png" />
+    <None Include="Resources\CloseForm2.png" />
+    <None Include="Resources\UpdateReport.png" />
+    <None Include="Resources\GetReport.png" />
+    <None Include="Resources\view.png" />
+    <None Include="Resources\Calendar.png" />
+    <None Include="Resources\SalesByProduct.png" />
+    <None Include="Resources\SalesByDate.png" />
+    <None Include="Resources\sales_all_clients.png" />
+    <None Include="Resources\kardexReport.png" />
+    <None Include="Resources\ListOfProductOfficial.png" />
+    <None Include="Resources\InventoryValue.png" />
+    <None Include="Resources\listOfProductInventory.png" />
+    <None Include="Resources\originalinventory.png" />
+    <None Include="Resources\1447586879_taxes.ico" />
+    <None Include="Resources\inventoryReportImg.png" />
+    <None Include="Resources\custom-reports.ico" />
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.AnalysisServices.AdomdClient">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.Reporting">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.ReportViewer.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls.ChartView">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls.GridView">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls.PivotGrid">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls.RadDock">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls.RichTextBox">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls.RichTextEditor">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls.Themes.Office2007Silver">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Telerik.WinControls.UI">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="TelerikCommon">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="TelerikData">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

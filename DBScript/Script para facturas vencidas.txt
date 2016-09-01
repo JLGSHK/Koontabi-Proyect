@@ -1,0 +1,14 @@
+SELECT c.CustomerCode,c.DocumentID,c.CompanyName, pd.DateEmit,pd.AmountPending,pd.DayDelay,
+CASE 
+WHEN pd.DAYDELAY BETWEEN 1 AND 30 THEN '1-30'
+WHEN pd.DAYDELAY BETWEEN 31 AND 60 THEN '31-60'
+WHEN pd.DAYDELAY BETWEEN 61 AND 90 THEN '61-90'
+WHEN pd.DAYDELAY BETWEEN 91 AND 120 THEN '91- 120'
+WHEN pd.DAYDELAY > 120 THEN 'MAYOR DE 120'
+END AS 'DIAS VENCIDOS'
+FROM PaidAccounts as pd
+INNER JOIN Invoices as iv
+ON pd.InvoiceID = iv.InvoiceID
+INNER JOIN Customers as c
+ON iv.CustomerID = c.CustomerID
+WHERE pd.DayDelay > 0

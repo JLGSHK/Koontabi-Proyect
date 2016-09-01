@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b35bdae9b619484cac6010a986edee7b" Name="Diagram1" ZoomLevel="101">
+        <EntityTypeShape EntityType="KoontabiDBModel.Bodega" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Category" Width="1.5" PointX="1.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Employee" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.InvoiceDetail" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Kardex" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Municipality" Width="1.5" PointX="1.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.ProductDetail" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Product" Width="1.5" PointX="3.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Province" Width="1.5" PointX="1.5" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Tax" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.TypeOfPay" Width="1.5" PointX="0.75" PointY="30" IsExpanded="true" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Unit" Width="1.5" PointX="1.5" PointY="15.25" IsExpanded="true" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Bodega" ManuallyRouted="false" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="KoontabiDBModel.FK_ProductDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Tax" ManuallyRouted="false" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Unit" ManuallyRouted="false" />
+        <AssociationConnector Association="KoontabiDBModel.FK_InvoiceDetails_Kardex" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Invoice" Width="1.5" PointX="6" PointY="14" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Bodega2" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Employee" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Invoice" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Tax2" />
+        <AssociationConnector Association="KoontabiDBModel.FK_TypeOfPay" />
+        <EntityTypeShape EntityType="KoontabiDBModel.Customer" Width="1.5" PointX="3.75" PointY="24.125" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Customer" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Municipality" />
+        <AssociationConnector Association="KoontabiDBModel.FK_Province" />
+        <EntityTypeShape EntityType="KoontabiDBModel.GetInvoiceByIDView" Width="2.75" PointX="7.125" PointY="8.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="KoontabiDBModel.V_DisplayAllInvoices" Width="2.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KoontabiDBModel.V_DisplayAllSales" Width="2.125" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="KoontabiDBModel.V_DisplayAllInvoicesByZone" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="KoontabiDBModel.PaidAccount" Width="1.5" PointX="8.25" PointY="15" />
+        <AssociationConnector Association="KoontabiDBModel.FK_PaidAccounts_Invoices" />
+        <EntityTypeShape EntityType="KoontabiDBModel.PaidAccountDetail" Width="1.5" PointX="10.5" PointY="15.25" />
+        <AssociationConnector Association="KoontabiDBModel.FK_PaidAccountDetails_PaidAccounts" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

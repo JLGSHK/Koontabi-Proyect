@@ -1,0 +1,2142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KoontabiDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bodega">
+          <Key>
+            <PropertyRef Name="BodegaID" />
+          </Key>
+          <Property Name="BodegaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BodegaName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BodegaAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="IndustrialRegistration" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DocumentID" Type="nvarchar" MaxLength="11" />
+          <Property Name="Address1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar(max)" />
+          <Property Name="ProvinceID" Type="int" />
+          <Property Name="MunicipalityID" Type="int" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cellphone" Type="nvarchar" MaxLength="12" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="BusinessRegistration" Type="nvarchar" MaxLength="20" />
+          <Property Name="TaxRegistration" Type="nvarchar" MaxLength="20" />
+          <Property Name="State" Type="int" Nullable="false" />
+          <Property Name="DateAdmission" Type="datetime" />
+          <Property Name="Birthday" Type="date" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="DocumentIdentity" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="EmpUserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmpPassword" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InvoiceDetails">
+          <Key>
+            <PropertyRef Name="InvoiceDetailsID" />
+          </Key>
+          <Property Name="InvoiceDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="ProductDetailID" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="money" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="KardexID" Type="int" Nullable="false" />
+          <Property Name="TaxID" Type="int" />
+          <Property Name="Discount" Type="float" />
+        </EntityType>
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="BodegaID" Type="int" Nullable="false" />
+          <Property Name="TypeOfPayID" Type="int" Nullable="false" />
+          <Property Name="TaxID" Type="int" />
+          <Property Name="DisCount" Type="float" />
+          <Property Name="ReferenceInvoice" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="ExpirationInvoiceDate" Type="date" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Kardex">
+          <Key>
+            <PropertyRef Name="KardexID" />
+          </Key>
+          <Property Name="KardexID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+          <Property Name="TypeOfMove" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="KardexIn" Type="float" />
+          <Property Name="KardexOut" Type="float" />
+          <Property Name="KardexStock" Type="float" Nullable="false" />
+          <Property Name="LastCost" Type="float" />
+          <Property Name="AverageCost" Type="float" />
+          <Property Name="ProductDetailsID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Municipalities">
+          <Key>
+            <PropertyRef Name="MunicipalityID" />
+          </Key>
+          <Property Name="MunicipalityID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ProvinceID" Type="int" />
+        </EntityType>
+        <EntityType Name="PaidAccountDetails">
+          <Key>
+            <PropertyRef Name="PaidAccountDetailID" />
+          </Key>
+          <Property Name="PaidAccountDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaidAccountID" Type="int" Nullable="false" />
+          <Property Name="Concept" Type="text" Nullable="false" />
+          <Property Name="Payment" Type="money" Nullable="false" />
+          <Property Name="DatePayment" Type="date" Nullable="false" />
+          <Property Name="RefNumberInvoicePay" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PaidAccounts">
+          <Key>
+            <PropertyRef Name="PaidAccountID" />
+          </Key>
+          <Property Name="PaidAccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="DateEmit" Type="date" Nullable="false" />
+          <Property Name="ExpirationDate" Type="date" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="DayDelay" Type="int" Nullable="false" />
+          <Property Name="State" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="AmountPending" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductDetails">
+          <Key>
+            <PropertyRef Name="ProductDetailsID" />
+          </Key>
+          <Property Name="ProductDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="UnitPrice1" Type="money" />
+          <Property Name="UnitPrice2" Type="money" />
+          <Property Name="UnitPrice3" Type="money" />
+          <Property Name="ProductCost" Type="money" Nullable="false" />
+          <Property Name="BodegaID" Type="int" Nullable="false" />
+          <Property Name="TaxID" Type="int" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="Images" Type="image" />
+          <Property Name="UnitID" Type="int" />
+          <Property Name="State" Type="bit" Nullable="false" />
+          <Property Name="InvoiceWithoutStock" Type="bit" Nullable="false" />
+          <Property Name="InvoiceWithPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="Provinces">
+          <Key>
+            <PropertyRef Name="ProvinceID" />
+          </Key>
+          <Property Name="ProvinceID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Taxes">
+          <Key>
+            <PropertyRef Name="TaxID" />
+          </Key>
+          <Property Name="TaxID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="TaxDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TaxValue" Type="numeric" Precision="7" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfPay">
+          <Key>
+            <PropertyRef Name="TypeOfPayID" />
+          </Key>
+          <Property Name="TypeOfPayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Abbreviation" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Units">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Abbreviation" Type="nchar" MaxLength="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KoontabiDB.dbo.GetInvoiceByIDView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GetInvoiceByIDView">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="InvoiceNumber" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="ReferenceInvoice" />
+            <PropertyRef Name="ExpirationInvoiceDate" />
+            <PropertyRef Name="InvoiceDetailQuantity" />
+            <PropertyRef Name="InvoiceDetailUnitPrice" />
+            <PropertyRef Name="ProductCode" />
+            <PropertyRef Name="ProductName" />
+            <PropertyRef Name="TypeOfPayDescription" />
+            <PropertyRef Name="BodegaName" />
+            <PropertyRef Name="CustomerAddress1" />
+            <PropertyRef Name="CustomerCompanyName" />
+            <PropertyRef Name="CustomerContactName" />
+            <PropertyRef Name="CustomerCustomerCode" />
+            <PropertyRef Name="CustomerPhone1" />
+            <PropertyRef Name="EmployeeDocumentIdentity" />
+            <PropertyRef Name="EmployeeFullName" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="ReferenceInvoice" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="ExpirationInvoiceDate" Type="date" Nullable="false" />
+          <Property Name="InvoiceDisCount" Type="float" />
+          <Property Name="InvoiceDetailQuantity" Type="int" Nullable="false" />
+          <Property Name="InvoiceDetailUnitPrice" Type="money" Nullable="false" />
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TaxDescription" Type="nvarchar(max)" />
+          <Property Name="TaxValue" Type="numeric" Precision="7" Scale="2" />
+          <Property Name="TypeOfPayDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BodegaAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="BodegaName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BodegaEmail" Type="nvarchar" MaxLength="60" />
+          <Property Name="BodegaIndustrialRegistration" Type="nvarchar" MaxLength="20" />
+          <Property Name="BodegaPhone" Type="nvarchar" MaxLength="15" />
+          <Property Name="CustomerAddress1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerAddress2" Type="nvarchar(max)" />
+          <Property Name="CustomerBusinessRegistration" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerCellPhone" Type="nvarchar" MaxLength="12" />
+          <Property Name="CustomerCompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerCustomerCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="CustomerDocumentID" Type="nvarchar" MaxLength="11" />
+          <Property Name="CustomerEmail" Type="nvarchar(max)" />
+          <Property Name="CustomerPhone1" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerTaxRegistration" Type="nvarchar" MaxLength="20" />
+          <Property Name="EmployeeDocumentIdentity" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="EmployeeFullName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="MunicipalityOfCustomer" Type="varchar" MaxLength="50" />
+          <Property Name="ProvinceOfCustomer" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KoontabiDB.dbo.V_DisplayAllInvoices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_DisplayAllInvoices">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="InvoiceNumber" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="TypeOfP" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeOfP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Total" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KoontabiDB.dbo.V_DisplayAllInvoicesByZone' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_DisplayAllInvoicesByZone">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="InvoiceNumber" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="CustomerCode" />
+            <PropertyRef Name="Address1" />
+            <PropertyRef Name="Phone1" />
+            <PropertyRef Name="ContactName" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="Zone" />
+            <PropertyRef Name="TypeOfP" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustomerCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Address1" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Address2" Type="nvarchar(max)" />
+          <Property Name="BusinessRegistration" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cellphone" Type="nvarchar" MaxLength="12" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DocumentID" Type="nvarchar" MaxLength="11" />
+          <Property Name="Province" Type="nvarchar" MaxLength="50" />
+          <Property Name="Municipality" Type="varchar" MaxLength="50" />
+          <Property Name="Zone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="TypeOfP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DisCount" Type="float" />
+          <Property Name="ITBIS" Type="numeric" Precision="38" Scale="10" />
+          <Property Name="SubTotal" Type="money" />
+          <Property Name="StateInvoice" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KoontabiDB.dbo.V_DisplayAllSales' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="V_DisplayAllSales">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="InvoiceNumber" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="TypeOfP" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="int" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeOfP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+          <Property Name="DisCount" Type="float" />
+          <Property Name="ITBIS" Type="numeric" Precision="38" Scale="10" />
+          <Property Name="SubTotal" Type="money" />
+        </EntityType>
+        <Association Name="FK_Bodega">
+          <End Role="Bodega" Type="Self.Bodega" Multiplicity="1" />
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bodega">
+              <PropertyRef Name="BodegaID" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="BodegaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bodega2">
+          <End Role="Bodega" Type="Self.Bodega" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bodega">
+              <PropertyRef Name="BodegaID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="BodegaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice">
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="1" />
+          <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoices">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="InvoiceDetails">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvoiceDetails_Kardex">
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="1" />
+          <End Role="InvoiceDetails" Type="Self.InvoiceDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kardex">
+              <PropertyRef Name="KardexID" />
+            </Principal>
+            <Dependent Role="InvoiceDetails">
+              <PropertyRef Name="KardexID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipality">
+          <End Role="Municipalities" Type="Self.Municipalities" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipalities">
+              <PropertyRef Name="MunicipalityID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="MunicipalityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaidAccountDetails_PaidAccounts">
+          <End Role="PaidAccounts" Type="Self.PaidAccounts" Multiplicity="1" />
+          <End Role="PaidAccountDetails" Type="Self.PaidAccountDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaidAccounts">
+              <PropertyRef Name="PaidAccountID" />
+            </Principal>
+            <Dependent Role="PaidAccountDetails">
+              <PropertyRef Name="PaidAccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PaidAccounts_Invoices">
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="1" />
+          <End Role="PaidAccounts" Type="Self.PaidAccounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoices">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="PaidAccounts">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDetails">
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="1" />
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="ProductDetailsID" />
+            </Principal>
+            <Dependent Role="Kardex">
+              <PropertyRef Name="ProductDetailsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Province">
+          <End Role="Provinces" Type="Self.Provinces" Multiplicity="0..1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Provinces">
+              <PropertyRef Name="ProvinceID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tax">
+          <End Role="Taxes" Type="Self.Taxes" Multiplicity="0..1" />
+          <End Role="ProductDetails" Type="Self.ProductDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taxes">
+              <PropertyRef Name="TaxID" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="TaxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tax2">
+          <End Role="Taxes" Type="Self.Taxes" Multiplicity="0..1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taxes">
+              <PropertyRef Name="TaxID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="TaxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeOfPay">
+          <End Role="TypeOfPay" Type="Self.TypeOfPay" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfPay">
+              <PropertyRef Name="TypeOfPayID" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="TypeOfPayID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unit">
+          <End Role="Units" Type="Self.Units" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Units">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetAllZoneProvince" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_ExitCustomerCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_GET_STATUS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="STATUS" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetAllBodega" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetAllCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetAllCustomerRadGridShowData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetAllInvoicesDetailsOverDue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetAllInvoicesOverDue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getAllMunicipalitiesById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetAllProducts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_getAllProvinces" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetCustomerByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CustomerParam" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetEmployeeToComboBox" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetLastCustomerCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetLastInvoiceNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_GetProductByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_GetUnits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_Taxes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_TypeOfPay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_ValidateInvoiceOldByPay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateToValidate" Type="date" Mode="In" />
+          <Parameter Name="Customerid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_ValidateProductCodeIfExit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Sp_ValidateRefNumberInvoicePay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RefNumberInvoice" Type="char" Mode="In" />
+        </Function>
+        <Function Name="SpValidateIfExitRefenceInvoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ReferenceInvoice" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="KoontabiDBModelStoreContainer">
+          <EntitySet Name="Bodega" EntityType="Self.Bodega" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoiceDetails" EntityType="Self.InvoiceDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kardex" EntityType="Self.Kardex" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Municipalities" EntityType="Self.Municipalities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaidAccountDetails" EntityType="Self.PaidAccountDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaidAccounts" EntityType="Self.PaidAccounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Taxes" EntityType="Self.Taxes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfPay" EntityType="Self.TypeOfPay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Units" EntityType="Self.Units" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetInvoiceByIDView" EntityType="Self.GetInvoiceByIDView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GetInvoiceByIDView].[InvoiceID] AS [InvoiceID], 
+    [GetInvoiceByIDView].[InvoiceNumber] AS [InvoiceNumber], 
+    [GetInvoiceByIDView].[InvoiceDate] AS [InvoiceDate], 
+    [GetInvoiceByIDView].[ReferenceInvoice] AS [ReferenceInvoice], 
+    [GetInvoiceByIDView].[ExpirationInvoiceDate] AS [ExpirationInvoiceDate], 
+    [GetInvoiceByIDView].[InvoiceDisCount] AS [InvoiceDisCount], 
+    [GetInvoiceByIDView].[InvoiceDetailQuantity] AS [InvoiceDetailQuantity], 
+    [GetInvoiceByIDView].[InvoiceDetailUnitPrice] AS [InvoiceDetailUnitPrice], 
+    [GetInvoiceByIDView].[ProductCode] AS [ProductCode], 
+    [GetInvoiceByIDView].[ProductName] AS [ProductName], 
+    [GetInvoiceByIDView].[TaxDescription] AS [TaxDescription], 
+    [GetInvoiceByIDView].[TaxValue] AS [TaxValue], 
+    [GetInvoiceByIDView].[TypeOfPayDescription] AS [TypeOfPayDescription], 
+    [GetInvoiceByIDView].[BodegaAddress] AS [BodegaAddress], 
+    [GetInvoiceByIDView].[BodegaName] AS [BodegaName], 
+    [GetInvoiceByIDView].[BodegaEmail] AS [BodegaEmail], 
+    [GetInvoiceByIDView].[BodegaIndustrialRegistration] AS [BodegaIndustrialRegistration], 
+    [GetInvoiceByIDView].[BodegaPhone] AS [BodegaPhone], 
+    [GetInvoiceByIDView].[CustomerAddress1] AS [CustomerAddress1], 
+    [GetInvoiceByIDView].[CustomerAddress2] AS [CustomerAddress2], 
+    [GetInvoiceByIDView].[CustomerBusinessRegistration] AS [CustomerBusinessRegistration], 
+    [GetInvoiceByIDView].[CustomerCellPhone] AS [CustomerCellPhone], 
+    [GetInvoiceByIDView].[CustomerCompanyName] AS [CustomerCompanyName], 
+    [GetInvoiceByIDView].[CustomerContactName] AS [CustomerContactName], 
+    [GetInvoiceByIDView].[CustomerCustomerCode] AS [CustomerCustomerCode], 
+    [GetInvoiceByIDView].[CustomerDocumentID] AS [CustomerDocumentID], 
+    [GetInvoiceByIDView].[CustomerEmail] AS [CustomerEmail], 
+    [GetInvoiceByIDView].[CustomerPhone1] AS [CustomerPhone1], 
+    [GetInvoiceByIDView].[CustomerTaxRegistration] AS [CustomerTaxRegistration], 
+    [GetInvoiceByIDView].[EmployeeDocumentIdentity] AS [EmployeeDocumentIdentity], 
+    [GetInvoiceByIDView].[EmployeeFullName] AS [EmployeeFullName], 
+    [GetInvoiceByIDView].[MunicipalityOfCustomer] AS [MunicipalityOfCustomer], 
+    [GetInvoiceByIDView].[ProvinceOfCustomer] AS [ProvinceOfCustomer]
+    FROM [dbo].[GetInvoiceByIDView] AS [GetInvoiceByIDView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_DisplayAllInvoices" EntityType="Self.V_DisplayAllInvoices" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_DisplayAllInvoices].[InvoiceID] AS [InvoiceID], 
+    [V_DisplayAllInvoices].[InvoiceNumber] AS [InvoiceNumber], 
+    [V_DisplayAllInvoices].[InvoiceDate] AS [InvoiceDate], 
+    [V_DisplayAllInvoices].[CompanyName] AS [CompanyName], 
+    [V_DisplayAllInvoices].[TypeOfP] AS [TypeOfP], 
+    [V_DisplayAllInvoices].[Total] AS [Total]
+    FROM [dbo].[V_DisplayAllInvoices] AS [V_DisplayAllInvoices]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_DisplayAllInvoicesByZone" EntityType="Self.V_DisplayAllInvoicesByZone" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_DisplayAllInvoicesByZone].[InvoiceID] AS [InvoiceID], 
+    [V_DisplayAllInvoicesByZone].[InvoiceNumber] AS [InvoiceNumber], 
+    [V_DisplayAllInvoicesByZone].[InvoiceDate] AS [InvoiceDate], 
+    [V_DisplayAllInvoicesByZone].[CustomerID] AS [CustomerID], 
+    [V_DisplayAllInvoicesByZone].[CustomerCode] AS [CustomerCode], 
+    [V_DisplayAllInvoicesByZone].[Address1] AS [Address1], 
+    [V_DisplayAllInvoicesByZone].[Address2] AS [Address2], 
+    [V_DisplayAllInvoicesByZone].[BusinessRegistration] AS [BusinessRegistration], 
+    [V_DisplayAllInvoicesByZone].[Phone1] AS [Phone1], 
+    [V_DisplayAllInvoicesByZone].[Cellphone] AS [Cellphone], 
+    [V_DisplayAllInvoicesByZone].[ContactName] AS [ContactName], 
+    [V_DisplayAllInvoicesByZone].[CompanyName] AS [CompanyName], 
+    [V_DisplayAllInvoicesByZone].[DocumentID] AS [DocumentID], 
+    [V_DisplayAllInvoicesByZone].[Province] AS [Province], 
+    [V_DisplayAllInvoicesByZone].[Municipality] AS [Municipality], 
+    [V_DisplayAllInvoicesByZone].[Zone] AS [Zone], 
+    [V_DisplayAllInvoicesByZone].[TypeOfP] AS [TypeOfP], 
+    [V_DisplayAllInvoicesByZone].[DisCount] AS [DisCount], 
+    [V_DisplayAllInvoicesByZone].[ITBIS] AS [ITBIS], 
+    [V_DisplayAllInvoicesByZone].[SubTotal] AS [SubTotal], 
+    [V_DisplayAllInvoicesByZone].[StateInvoice] AS [StateInvoice]
+    FROM [dbo].[V_DisplayAllInvoicesByZone] AS [V_DisplayAllInvoicesByZone]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_DisplayAllSales" EntityType="Self.V_DisplayAllSales" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [V_DisplayAllSales].[InvoiceID] AS [InvoiceID], 
+    [V_DisplayAllSales].[InvoiceNumber] AS [InvoiceNumber], 
+    [V_DisplayAllSales].[InvoiceDate] AS [InvoiceDate], 
+    [V_DisplayAllSales].[CompanyName] AS [CompanyName], 
+    [V_DisplayAllSales].[TypeOfP] AS [TypeOfP], 
+    [V_DisplayAllSales].[Status] AS [Status], 
+    [V_DisplayAllSales].[DisCount] AS [DisCount], 
+    [V_DisplayAllSales].[ITBIS] AS [ITBIS], 
+    [V_DisplayAllSales].[SubTotal] AS [SubTotal]
+    FROM [dbo].[V_DisplayAllSales] AS [V_DisplayAllSales]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Bodega" Association="Self.FK_Bodega">
+            <End Role="Bodega" EntitySet="Bodega" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bodega2" Association="Self.FK_Bodega2">
+            <End Role="Bodega" EntitySet="Bodega" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category" Association="Self.FK_Category">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer" Association="Self.FK_Customer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee" Association="Self.FK_Employee">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice" Association="Self.FK_Invoice">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvoiceDetails_Kardex" Association="Self.FK_InvoiceDetails_Kardex">
+            <End Role="Kardex" EntitySet="Kardex" />
+            <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipality" Association="Self.FK_Municipality">
+            <End Role="Municipalities" EntitySet="Municipalities" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaidAccountDetails_PaidAccounts" Association="Self.FK_PaidAccountDetails_PaidAccounts">
+            <End Role="PaidAccounts" EntitySet="PaidAccounts" />
+            <End Role="PaidAccountDetails" EntitySet="PaidAccountDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PaidAccounts_Invoices" Association="Self.FK_PaidAccounts_Invoices">
+            <End Role="Invoices" EntitySet="Invoices" />
+            <End Role="PaidAccounts" EntitySet="PaidAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product" Association="Self.FK_Product">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDetails" Association="Self.FK_ProductDetails">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="Kardex" EntitySet="Kardex" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Province" Association="Self.FK_Province">
+            <End Role="Provinces" EntitySet="Provinces" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tax" Association="Self.FK_Tax">
+            <End Role="Taxes" EntitySet="Taxes" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tax2" Association="Self.FK_Tax2">
+            <End Role="Taxes" EntitySet="Taxes" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeOfPay" Association="Self.FK_TypeOfPay">
+            <End Role="TypeOfPay" EntitySet="TypeOfPay" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unit" Association="Self.FK_Unit">
+            <End Role="Units" EntitySet="Units" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KoontabiDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bodega">
+          <Key>
+            <PropertyRef Name="BodegaID" />
+          </Key>
+          <Property Name="BodegaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BodegaName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BodegaAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IndustrialRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProductDetails" Relationship="Self.FK_Bodega" FromRole="Bodega" ToRole="ProductDetails" />
+          <NavigationProperty Name="Invoices" Relationship="KoontabiDBModel.FK_Bodega2" FromRole="Bodega" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Category" FromRole="Categories" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DocumentIdentity" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmpUserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmpPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Invoices" Relationship="KoontabiDBModel.FK_Employee" FromRole="Employee" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="InvoiceDetail">
+          <Key>
+            <PropertyRef Name="InvoiceDetailsID" />
+          </Key>
+          <Property Name="InvoiceDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="ProductDetailID" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="KardexID" Type="Int32" Nullable="false" />
+          <Property Name="TaxID" Type="Int32" />
+          <Property Name="Discount" Type="Double" />
+          <NavigationProperty Name="Kardex" Relationship="KoontabiDBModel.FK_InvoiceDetails_Kardex" FromRole="InvoiceDetail" ToRole="Kardex" />
+          <NavigationProperty Name="Invoice" Relationship="KoontabiDBModel.FK_Invoice" FromRole="InvoiceDetail" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Kardex">
+          <Key>
+            <PropertyRef Name="KardexID" />
+          </Key>
+          <Property Name="KardexID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TypeOfMove" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KardexIn" Type="Double" />
+          <Property Name="KardexOut" Type="Double" />
+          <Property Name="KardexStock" Type="Double" Nullable="false" />
+          <Property Name="LastCost" Type="Double" />
+          <Property Name="AverageCost" Type="Double" />
+          <Property Name="ProductDetailsID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProductDetail" Relationship="Self.FK_ProductDetails" FromRole="Kardex" ToRole="ProductDetails" />
+          <NavigationProperty Name="InvoiceDetails" Relationship="KoontabiDBModel.FK_InvoiceDetails_Kardex" FromRole="Kardex" ToRole="InvoiceDetail" />
+        </EntityType>
+        <EntityType Name="Municipality">
+          <Key>
+            <PropertyRef Name="MunicipalityID" />
+          </Key>
+          <Property Name="MunicipalityID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceID" Type="Int32" />
+          <NavigationProperty Name="Customers" Relationship="KoontabiDBModel.FK_Municipality" FromRole="Municipality" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="ProductDetail">
+          <Key>
+            <PropertyRef Name="ProductDetailsID" />
+          </Key>
+          <Property Name="ProductDetailsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitPrice2" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitPrice3" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ProductCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="BodegaID" Type="Int32" Nullable="false" />
+          <Property Name="TaxID" Type="Int32" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bodega" Relationship="Self.FK_Bodega" FromRole="ProductDetails" ToRole="Bodega" />
+          <NavigationProperty Name="Kardexes" Relationship="Self.FK_ProductDetails" FromRole="ProductDetails" ToRole="Kardex" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product" FromRole="ProductDetails" ToRole="Products" />
+          <NavigationProperty Name="Tax" Relationship="Self.FK_Tax" FromRole="ProductDetails" ToRole="Taxes" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="Images" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UnitID" Type="Int32" />
+          <Property Name="State" Type="Boolean" Nullable="false" />
+          <Property Name="InvoiceWithoutStock" Type="Boolean" Nullable="false" />
+          <Property Name="InvoiceWithPrice" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Category" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="ProductDetails" Relationship="Self.FK_Product" FromRole="Products" ToRole="ProductDetails" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK_Unit" FromRole="Products" ToRole="Units" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ProvinceID" />
+          </Key>
+          <Property Name="ProvinceID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Zone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="KoontabiDBModel.FK_Province" FromRole="Province" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Tax">
+          <Key>
+            <PropertyRef Name="TaxID" />
+          </Key>
+          <Property Name="TaxID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Abbreviation" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TaxDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TaxValue" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <NavigationProperty Name="ProductDetails" Relationship="Self.FK_Tax" FromRole="Taxes" ToRole="ProductDetails" />
+          <NavigationProperty Name="Invoices" Relationship="KoontabiDBModel.FK_Tax2" FromRole="Tax" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="TypeOfPay">
+          <Key>
+            <PropertyRef Name="TypeOfPayID" />
+          </Key>
+          <Property Name="TypeOfPayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Abbreviation" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Invoices" Relationship="KoontabiDBModel.FK_TypeOfPay" FromRole="TypeOfPay" ToRole="Invoice" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Abbreviation" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Unit" FromRole="Units" ToRole="Products" />
+        </EntityType>
+        <Association Name="FK_Bodega">
+          <End Role="Bodega" Type="Self.Bodega" Multiplicity="1" />
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bodega">
+              <PropertyRef Name="BodegaID" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="BodegaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductDetails">
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="1" />
+          <End Role="Kardex" Type="Self.Kardex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductDetails">
+              <PropertyRef Name="ProductDetailsID" />
+            </Principal>
+            <Dependent Role="Kardex">
+              <PropertyRef Name="ProductDetailsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tax">
+          <End Role="Taxes" Type="Self.Tax" Multiplicity="0..1" />
+          <End Role="ProductDetails" Type="Self.ProductDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Taxes">
+              <PropertyRef Name="TaxID" />
+            </Principal>
+            <Dependent Role="ProductDetails">
+              <PropertyRef Name="TaxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unit">
+          <End Role="Units" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Units">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KoontabiDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bodegas" EntityType="Self.Bodega" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="InvoiceDetails" EntityType="Self.InvoiceDetail" />
+          <EntitySet Name="Kardexes" EntityType="Self.Kardex" />
+          <EntitySet Name="Municipalities" EntityType="Self.Municipality" />
+          <EntitySet Name="ProductDetails" EntityType="Self.ProductDetail" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Provinces" EntityType="Self.Province" />
+          <EntitySet Name="Taxes" EntityType="Self.Tax" />
+          <EntitySet Name="TypeOfPays" EntityType="Self.TypeOfPay" />
+          <EntitySet Name="Units" EntityType="Self.Unit" />
+          <AssociationSet Name="FK_Bodega" Association="Self.FK_Bodega">
+            <End Role="Bodega" EntitySet="Bodegas" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category" Association="Self.FK_Category">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductDetails" Association="Self.FK_ProductDetails">
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+            <End Role="Kardex" EntitySet="Kardexes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product" Association="Self.FK_Product">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tax" Association="Self.FK_Tax">
+            <End Role="Taxes" EntitySet="Taxes" />
+            <End Role="ProductDetails" EntitySet="ProductDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unit" Association="Self.FK_Unit">
+            <End Role="Units" EntitySet="Units" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <FunctionImport Name="sp_ExitCustomerCode" ReturnType="Collection(KoontabiDBModel.sp_ExitCustomerCode)">
+          <Parameter Name="CustomerCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetAllBodega" ReturnType="Collection(KoontabiDBModel.Sp_GetAllBodega)" />
+          <FunctionImport Name="Sp_GetAllCategories" ReturnType="Collection(KoontabiDBModel.Sp_GetAllCategories)" />
+          <FunctionImport Name="sp_getAllMunicipalitiesById" ReturnType="Collection(KoontabiDBModel.sp_getAllMunicipalitiesById)">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getAllProvinces" ReturnType="Collection(KoontabiDBModel.sp_getAllProvinces)" />
+          <FunctionImport Name="Sp_GetCategories" ReturnType="Collection(KoontabiDBModel.Sp_GetCategories)" />
+          <FunctionImport Name="Sp_GetUnits" ReturnType="Collection(KoontabiDBModel.Sp_GetUnits)" />
+          <FunctionImport Name="Sp_Taxes" ReturnType="Collection(KoontabiDBModel.Sp_Taxes)" />
+          <FunctionImport Name="Sp_GetAllProducts" ReturnType="Collection(KoontabiDBModel.Sp_GetAllProducts)" />
+          <AssociationSet Name="FK_InvoiceDetails_Kardex" Association="KoontabiDBModel.FK_InvoiceDetails_Kardex">
+            <End Role="Kardex" EntitySet="Kardexes" />
+            <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
+          </AssociationSet>
+          <FunctionImport Name="Sp_ValidateProductCodeIfExit" ReturnType="Collection(KoontabiDBModel.Sp_ValidateProductCodeIfExit)">
+          <Parameter Name="ProductCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_TypeOfPay" ReturnType="Collection(KoontabiDBModel.Sp_TypeOfPay)" />
+          <FunctionImport Name="Sp_GetCustomerByParam" ReturnType="Collection(KoontabiDBModel.Sp_GetCustomerByParam)">
+          <Parameter Name="CustomerParam" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetEmployeeToComboBox" ReturnType="Collection(KoontabiDBModel.Sp_GetEmployeeToComboBox)" />
+          <EntitySet Name="Invoices" EntityType="KoontabiDBModel.Invoice" />
+          <AssociationSet Name="FK_Bodega2" Association="KoontabiDBModel.FK_Bodega2">
+            <End Role="Bodega" EntitySet="Bodegas" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee" Association="KoontabiDBModel.FK_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice" Association="KoontabiDBModel.FK_Invoice">
+            <End Role="Invoice" EntitySet="Invoices" />
+            <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tax2" Association="KoontabiDBModel.FK_Tax2">
+            <End Role="Tax" EntitySet="Taxes" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeOfPay" Association="KoontabiDBModel.FK_TypeOfPay">
+            <End Role="TypeOfPay" EntitySet="TypeOfPays" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <FunctionImport Name="Sp_GetLastInvoiceNumber" ReturnType="Collection(KoontabiDBModel.Sp_GetLastInvoiceNumber)" />
+          <FunctionImport Name="SpValidateIfExitRefenceInvoice" ReturnType="Collection(KoontabiDBModel.SpValidateIfExitRefenceInvoice)">
+          <Parameter Name="ReferenceInvoice" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetLastCustomerCode" ReturnType="Collection(KoontabiDBModel.SpGetLastCustomerCode)" />
+          <FunctionImport Name="Sp_GetProductByID" ReturnType="Collection(KoontabiDBModel.Sp_GetProductByID)">
+          <Parameter Name="ProductID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Customers" EntityType="KoontabiDBModel.Customer" />
+          <AssociationSet Name="FK_Customer" Association="KoontabiDBModel.FK_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipality" Association="KoontabiDBModel.FK_Municipality">
+            <End Role="Municipality" EntitySet="Municipalities" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Province" Association="KoontabiDBModel.FK_Province">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <FunctionImport Name="sp_GetAllCustomerRadGridShowData" ReturnType="Collection(KoontabiDBModel.sp_GetAllCustomerRadGridShowData)" />
+          <EntitySet Name="GetInvoiceByIDViews" EntityType="KoontabiDBModel.GetInvoiceByIDView" />
+          <EntitySet Name="V_DisplayAllInvoices" EntityType="KoontabiDBModel.V_DisplayAllInvoices" />
+          <EntitySet Name="V_DisplayAllSales" EntityType="KoontabiDBModel.V_DisplayAllSales" />
+          <FunctionImport Name="GetAllZoneProvince" ReturnType="Collection(KoontabiDBModel.GetAllZoneProvince)" />
+          <EntitySet Name="V_DisplayAllInvoicesByZone" EntityType="KoontabiDBModel.V_DisplayAllInvoicesByZone" />
+          <EntitySet Name="PaidAccounts" EntityType="KoontabiDBModel.PaidAccount" />
+          <AssociationSet Name="FK_PaidAccounts_Invoices" Association="KoontabiDBModel.FK_PaidAccounts_Invoices">
+            <End Role="Invoice" EntitySet="Invoices" />
+            <End Role="PaidAccount" EntitySet="PaidAccounts" />
+          </AssociationSet>
+          <FunctionImport Name="SP_GET_STATUS" ReturnType="Collection(KoontabiDBModel.SP_GET_STATUS)">
+          <Parameter Name="STATUS" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="PaidAccountDetails" EntityType="KoontabiDBModel.PaidAccountDetail" />
+          <AssociationSet Name="FK_PaidAccountDetails_PaidAccounts" Association="KoontabiDBModel.FK_PaidAccountDetails_PaidAccounts">
+            <End Role="PaidAccount" EntitySet="PaidAccounts" />
+            <End Role="PaidAccountDetail" EntitySet="PaidAccountDetails" />
+          </AssociationSet>
+          <FunctionImport Name="Sp_ValidateRefNumberInvoicePay" ReturnType="Collection(KoontabiDBModel.Sp_ValidateRefNumberInvoicePay)">
+          <Parameter Name="RefNumberInvoice" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_ValidateInvoiceOldByPay" ReturnType="Collection(KoontabiDBModel.Sp_ValidateInvoiceOldByPay)">
+            <Parameter Name="DateToValidate" Mode="In" Type="DateTime" />
+            <Parameter Name="Customerid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_GetInvoiceOverDue" />
+          <FunctionImport Name="Sp_GetInvoiceDetailsOverDue" />
+          <FunctionImport Name="Sp_GetAllInvoicesOverDue" ReturnType="Collection(KoontabiDBModel.Sp_GetAllInvoicesOverDue)" />
+          <FunctionImport Name="Sp_GetAllInvoicesDetailsOverDue" ReturnType="Collection(KoontabiDBModel.Sp_GetAllInvoicesDetailsOverDue)" />
+          </EntityContainer>
+        <ComplexType Name="sp_ExitCustomerCode">
+          <Property Type="Int32" Name="Code" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetAllBodega">
+          <Property Type="Int32" Name="BodegaID" Nullable="false" />
+          <Property Type="String" Name="BodegaName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="BodegaAddress" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="IndustrialRegistration" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetAllCategories">
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="CategoryCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_getAllMunicipalitiesById">
+          <Property Type="Int32" Name="MunicipalityID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_getAllProvinces">
+          <Property Type="Int32" Name="ProvinceID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetCategories">
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetUnits">
+          <Property Type="Int32" Name="UnitID" Nullable="false" />
+          <Property Type="String" Name="UnitDescription" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="Sp_Taxes">
+          <Property Type="Int32" Name="TaxID" Nullable="false" />
+          <Property Type="String" Name="TaxDescription" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetAllProducts">
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="ProductID" Nullable="false" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="UnitPrice1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="ProductCost" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="Stock" Nullable="false" />
+        </ComplexType>
+        <Association Name="FK_InvoiceDetails_Kardex">
+          <End Type="KoontabiDBModel.Kardex" Role="Kardex" Multiplicity="1" />
+          <End Type="KoontabiDBModel.InvoiceDetail" Role="InvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kardex">
+              <PropertyRef Name="KardexID" />
+            </Principal>
+            <Dependent Role="InvoiceDetail">
+              <PropertyRef Name="KardexID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Sp_ValidateProductCodeIfExit">
+          <Property Type="Int32" Name="Result" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Sp_TypeOfPay">
+          <Property Type="Int32" Name="TypeOfPayID" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetCustomerByParam">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="CustomerCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ContactName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address1" Nullable="false" />
+          <Property Type="String" Name="Phone1" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Province" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Municipality" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetEmployeeToComboBox">
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="30" />
+        </ComplexType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNumber" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BodegaID" Type="Int32" Nullable="false" />
+          <Property Name="TypeOfPayID" Type="Int32" Nullable="false" />
+          <Property Name="TaxID" Type="Int32" />
+          <Property Name="DisCount" Type="Double" />
+          <Property Name="ReferenceInvoice" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="ExpirationInvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bodega" Relationship="KoontabiDBModel.FK_Bodega2" FromRole="Invoice" ToRole="Bodega" />
+          <NavigationProperty Name="Employee" Relationship="KoontabiDBModel.FK_Employee" FromRole="Invoice" ToRole="Employee" />
+          <NavigationProperty Name="InvoiceDetails" Relationship="KoontabiDBModel.FK_Invoice" FromRole="Invoice" ToRole="InvoiceDetail" />
+          <NavigationProperty Name="Tax" Relationship="KoontabiDBModel.FK_Tax2" FromRole="Invoice" ToRole="Tax" />
+          <NavigationProperty Name="TypeOfPay" Relationship="KoontabiDBModel.FK_TypeOfPay" FromRole="Invoice" ToRole="TypeOfPay" />
+          <NavigationProperty Name="Customer" Relationship="KoontabiDBModel.FK_Customer" FromRole="Invoice" ToRole="Customer" />
+          <NavigationProperty Name="PaidAccounts" Relationship="KoontabiDBModel.FK_PaidAccounts_Invoices" FromRole="Invoice" ToRole="PaidAccount" />
+        </EntityType>
+        <Association Name="FK_Bodega2">
+          <End Type="KoontabiDBModel.Bodega" Role="Bodega" Multiplicity="1" />
+          <End Type="KoontabiDBModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bodega">
+              <PropertyRef Name="BodegaID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="BodegaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee">
+          <End Type="KoontabiDBModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="KoontabiDBModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoice">
+          <End Type="KoontabiDBModel.Invoice" Role="Invoice" Multiplicity="1" />
+          <End Type="KoontabiDBModel.InvoiceDetail" Role="InvoiceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="InvoiceDetail">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tax2">
+          <End Type="KoontabiDBModel.Tax" Role="Tax" Multiplicity="0..1" />
+          <End Type="KoontabiDBModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tax">
+              <PropertyRef Name="TaxID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="TaxID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeOfPay">
+          <End Type="KoontabiDBModel.TypeOfPay" Role="TypeOfPay" Multiplicity="1" />
+          <End Type="KoontabiDBModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfPay">
+              <PropertyRef Name="TypeOfPayID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="TypeOfPayID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Sp_GetLastInvoiceNumber">
+          <Property Type="Int32" Name="InvoiceNumber" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SpValidateIfExitRefenceInvoice">
+          <Property Type="Int32" Name="ReferenceInvoice" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SpGetLastCustomerCode">
+          <Property Type="String" Name="CustomerCode" Nullable="true" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetProductByID">
+          <Property Type="Int32" Name="ProductID" Nullable="false" />
+          <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="Decimal" Name="ProductCost" Nullable="false" Precision="19" />
+          <Property Type="Double" Name="KardexIn" Nullable="true" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="Int32" Name="UnitID" Nullable="true" />
+          <Property Type="Decimal" Name="UnitPrice1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="UnitPrice2" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="UnitPrice3" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="Stock" Nullable="false" />
+          <Property Type="Int32" Name="InvoiceWithPrice" Nullable="true" />
+          <Property Type="Boolean" Name="InvoiceWithoutStock" Nullable="false" />
+          <Property Type="Boolean" Name="State" Nullable="false" />
+          <Property Type="Int32" Name="TaxID" Nullable="true" />
+          <Property Type="Int32" Name="KardexID" Nullable="false" />
+          <Property Type="Int32" Name="ProductDetailsID" Nullable="false" />
+          <Property Type="Int32" Name="BodegaID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentID" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceID" Type="Int32" />
+          <Property Name="MunicipalityID" Type="Int32" />
+          <Property Name="Phone1" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cellphone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TaxRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="KoontabiDBModel.CustomerState" Nullable="false" />
+          <Property Name="DateAdmission" Type="DateTime" Precision="3" />
+          <Property Name="Birthday" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Invoices" Relationship="KoontabiDBModel.FK_Customer" FromRole="Customer" ToRole="Invoice" />
+          <NavigationProperty Name="Municipality" Relationship="KoontabiDBModel.FK_Municipality" FromRole="Customer" ToRole="Municipality" />
+          <NavigationProperty Name="Province" Relationship="KoontabiDBModel.FK_Province" FromRole="Customer" ToRole="Province" />
+        </EntityType>
+        <Association Name="FK_Customer">
+          <End Type="KoontabiDBModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="KoontabiDBModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipality">
+          <End Type="KoontabiDBModel.Municipality" Role="Municipality" Multiplicity="0..1" />
+          <End Type="KoontabiDBModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipality">
+              <PropertyRef Name="MunicipalityID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="MunicipalityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Province">
+          <End Type="KoontabiDBModel.Province" Role="Province" Multiplicity="0..1" />
+          <End Type="KoontabiDBModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ProvinceID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_GetAllCustomerRadGridShowData">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="CustomerCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ContactName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Phone1" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Addresses" Nullable="true" />
+          <Property Type="String" Name="Province" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Municipality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Zone" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="GetInvoiceByIDView">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="InvoiceNumber" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="ReferenceInvoice" />
+            <PropertyRef Name="ExpirationInvoiceDate" />
+            <PropertyRef Name="InvoiceDetailQuantity" />
+            <PropertyRef Name="InvoiceDetailUnitPrice" />
+            <PropertyRef Name="ProductCode" />
+            <PropertyRef Name="ProductName" />
+            <PropertyRef Name="TypeOfPayDescription" />
+            <PropertyRef Name="BodegaName" />
+            <PropertyRef Name="CustomerAddress1" />
+            <PropertyRef Name="CustomerCompanyName" />
+            <PropertyRef Name="CustomerContactName" />
+            <PropertyRef Name="CustomerCustomerCode" />
+            <PropertyRef Name="CustomerPhone1" />
+            <PropertyRef Name="EmployeeDocumentIdentity" />
+            <PropertyRef Name="EmployeeFullName" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReferenceInvoice" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="ExpirationInvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="InvoiceDisCount" Type="Double" />
+          <Property Name="InvoiceDetailQuantity" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDetailUnitPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ProductCode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TaxDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaxValue" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="TypeOfPayDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BodegaAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BodegaName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BodegaEmail" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="BodegaIndustrialRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BodegaPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerBusinessRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerCellPhone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerCompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerCustomerCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerDocumentID" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPhone1" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerTaxRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeDocumentIdentity" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeFullName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="MunicipalityOfCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceOfCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EnumType Name="CustomerState" a:ExternalTypeName="Koontabi.Domain.CustomerState" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EntityType Name="V_DisplayAllInvoices">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="InvoiceNumber" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="TypeOfP" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOfP" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Total" Type="Double" />
+        </EntityType>
+        <EntityType Name="V_DisplayAllSales">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="InvoiceNumber" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="TypeOfP" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOfP" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DisCount" Type="Double" />
+          <Property Name="ITBIS" Type="Decimal" Precision="38" Scale="10" />
+          <Property Name="SubTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="GetAllZoneProvince">
+          <Property Type="String" Name="Zone" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="V_DisplayAllInvoicesByZone">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+            <PropertyRef Name="InvoiceNumber" />
+            <PropertyRef Name="InvoiceDate" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="CustomerCode" />
+            <PropertyRef Name="Address1" />
+            <PropertyRef Name="Phone1" />
+            <PropertyRef Name="ContactName" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="Zone" />
+            <PropertyRef Name="TypeOfP" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerCode" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Address1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BusinessRegistration" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone1" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Cellphone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Municipality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOfP" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DisCount" Type="Double" />
+          <Property Name="ITBIS" Type="Decimal" Precision="38" Scale="10" />
+          <Property Name="SubTotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DocumentID" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="StateInvoice" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PaidAccount">
+          <Key>
+            <PropertyRef Name="PaidAccountID" />
+          </Key>
+          <Property Name="PaidAccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="DateEmit" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="DayDelay" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Invoice" Relationship="KoontabiDBModel.FK_PaidAccounts_Invoices" FromRole="PaidAccount" ToRole="Invoice" />
+          <Property Name="AmountPending" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="PaidAccountDetails" Relationship="KoontabiDBModel.FK_PaidAccountDetails_PaidAccounts" FromRole="PaidAccount" ToRole="PaidAccountDetail" />
+        </EntityType>
+        <Association Name="FK_PaidAccounts_Invoices">
+          <End Type="KoontabiDBModel.Invoice" Role="Invoice" Multiplicity="1" />
+          <End Type="KoontabiDBModel.PaidAccount" Role="PaidAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Invoice">
+              <PropertyRef Name="InvoiceID" />
+            </Principal>
+            <Dependent Role="PaidAccount">
+              <PropertyRef Name="InvoiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_GET_STATUS">
+          <Property Type="String" Name="STATUS" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="PaidAccountDetail">
+          <Key>
+            <PropertyRef Name="PaidAccountDetailID" />
+          </Key>
+          <Property Name="PaidAccountDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaidAccountID" Type="Int32" Nullable="false" />
+          <Property Name="Concept" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Payment" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="DatePayment" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RefNumberInvoicePay" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="PaidAccount" Relationship="KoontabiDBModel.FK_PaidAccountDetails_PaidAccounts" FromRole="PaidAccountDetail" ToRole="PaidAccount" />
+        </EntityType>
+        <Association Name="FK_PaidAccountDetails_PaidAccounts">
+          <End Type="KoontabiDBModel.PaidAccount" Role="PaidAccount" Multiplicity="1" />
+          <End Type="KoontabiDBModel.PaidAccountDetail" Role="PaidAccountDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaidAccount">
+              <PropertyRef Name="PaidAccountID" />
+            </Principal>
+            <Dependent Role="PaidAccountDetail">
+              <PropertyRef Name="PaidAccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="Sp_ValidateRefNumberInvoicePay">
+          <Property Type="Boolean" Name="Result" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_ValidateInvoiceOldByPay">
+          <Property Type="Int32" Name="InvoiceNumber" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetAllInvoicesOverDue">
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="String" Name="CustomerCode" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="String" Name="Province" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Municipality" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Phone1" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="Sp_GetAllInvoicesDetailsOverDue">
+          <Property Type="Int32" Name="InvoiceNumber" Nullable="false" />
+          <Property Type="Int32" Name="CustomerID" Nullable="false" />
+          <Property Type="DateTime" Name="DateEmit" Nullable="false" />
+          <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" />
+          <Property Type="Decimal" Name="AmountPending" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="DayDelay" Nullable="false" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="LastPayment" Nullable="true" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KoontabiDBModelStoreContainer" CdmEntityContainer="KoontabiDBEntities">
+          <EntitySetMapping Name="Bodegas">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Bodega">
+              <MappingFragment StoreEntitySet="Bodega">
+                <ScalarProperty Name="BodegaID" ColumnName="BodegaID" />
+                <ScalarProperty Name="BodegaName" ColumnName="BodegaName" />
+                <ScalarProperty Name="BodegaAddress" ColumnName="BodegaAddress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="IndustrialRegistration" ColumnName="IndustrialRegistration" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="DocumentIdentity" ColumnName="DocumentIdentity" />
+                <ScalarProperty Name="EmpUserName" ColumnName="EmpUserName" />
+                <ScalarProperty Name="EmpPassword" ColumnName="EmpPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceDetails">
+            <EntityTypeMapping TypeName="KoontabiDBModel.InvoiceDetail">
+              <MappingFragment StoreEntitySet="InvoiceDetails">
+                <ScalarProperty Name="InvoiceDetailsID" ColumnName="InvoiceDetailsID" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="ProductDetailID" ColumnName="ProductDetailID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="KardexID" ColumnName="KardexID" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kardexes">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Kardex">
+              <MappingFragment StoreEntitySet="Kardex">
+                <ScalarProperty Name="KardexID" ColumnName="KardexID" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="TypeOfMove" ColumnName="TypeOfMove" />
+                <ScalarProperty Name="KardexIn" ColumnName="KardexIn" />
+                <ScalarProperty Name="KardexOut" ColumnName="KardexOut" />
+                <ScalarProperty Name="KardexStock" ColumnName="KardexStock" />
+                <ScalarProperty Name="LastCost" ColumnName="LastCost" />
+                <ScalarProperty Name="AverageCost" ColumnName="AverageCost" />
+                <ScalarProperty Name="ProductDetailsID" ColumnName="ProductDetailsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Municipalities">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Municipality">
+              <MappingFragment StoreEntitySet="Municipalities">
+                <ScalarProperty Name="MunicipalityID" ColumnName="MunicipalityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductDetails">
+            <EntityTypeMapping TypeName="KoontabiDBModel.ProductDetail">
+              <MappingFragment StoreEntitySet="ProductDetails">
+                <ScalarProperty Name="ProductDetailsID" ColumnName="ProductDetailsID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UnitPrice1" ColumnName="UnitPrice1" />
+                <ScalarProperty Name="UnitPrice2" ColumnName="UnitPrice2" />
+                <ScalarProperty Name="UnitPrice3" ColumnName="UnitPrice3" />
+                <ScalarProperty Name="ProductCost" ColumnName="ProductCost" />
+                <ScalarProperty Name="BodegaID" ColumnName="BodegaID" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Images" ColumnName="Images" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="InvoiceWithoutStock" ColumnName="InvoiceWithoutStock" />
+                <ScalarProperty Name="InvoiceWithPrice" ColumnName="InvoiceWithPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Province">
+              <MappingFragment StoreEntitySet="Provinces">
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Taxes">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Tax">
+              <MappingFragment StoreEntitySet="Taxes">
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="TaxDescription" ColumnName="TaxDescription" />
+                <ScalarProperty Name="TaxValue" ColumnName="TaxValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfPays">
+            <EntityTypeMapping TypeName="KoontabiDBModel.TypeOfPay">
+              <MappingFragment StoreEntitySet="TypeOfPay">
+                <ScalarProperty Name="TypeOfPayID" ColumnName="TypeOfPayID" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Unit">
+              <MappingFragment StoreEntitySet="Units">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="UnitDescription" ColumnName="UnitDescription" />
+                <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ExitCustomerCode" FunctionName="KoontabiDBModel.Store.sp_ExitCustomerCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.sp_ExitCustomerCode">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetAllBodega" FunctionName="KoontabiDBModel.Store.Sp_GetAllBodega">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetAllBodega">
+                <ScalarProperty Name="BodegaID" ColumnName="BodegaID" />
+                <ScalarProperty Name="BodegaName" ColumnName="BodegaName" />
+                <ScalarProperty Name="BodegaAddress" ColumnName="BodegaAddress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="IndustrialRegistration" ColumnName="IndustrialRegistration" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetAllCategories" FunctionName="KoontabiDBModel.Store.Sp_GetAllCategories">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetAllCategories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryCode" ColumnName="CategoryCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_getAllMunicipalitiesById" FunctionName="KoontabiDBModel.Store.sp_getAllMunicipalitiesById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.sp_getAllMunicipalitiesById">
+                <ScalarProperty Name="MunicipalityID" ColumnName="MunicipalityID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_getAllProvinces" FunctionName="KoontabiDBModel.Store.sp_getAllProvinces">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.sp_getAllProvinces">
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetCategories" FunctionName="KoontabiDBModel.Store.Sp_GetCategories">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetCategories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetUnits" FunctionName="KoontabiDBModel.Store.Sp_GetUnits">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetUnits">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="UnitDescription" ColumnName="UnitDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_Taxes" FunctionName="KoontabiDBModel.Store.Sp_Taxes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_Taxes">
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="TaxDescription" ColumnName="TaxDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetAllProducts" FunctionName="KoontabiDBModel.Store.Sp_GetAllProducts">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetAllProducts">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="UnitPrice1" ColumnName="UnitPrice1" />
+                <ScalarProperty Name="ProductCost" ColumnName="ProductCost" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_ValidateProductCodeIfExit" FunctionName="KoontabiDBModel.Store.Sp_ValidateProductCodeIfExit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_ValidateProductCodeIfExit">
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_TypeOfPay" FunctionName="KoontabiDBModel.Store.Sp_TypeOfPay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_TypeOfPay">
+                <ScalarProperty Name="TypeOfPayID" ColumnName="TypeOfPayID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetCustomerByParam" FunctionName="KoontabiDBModel.Store.Sp_GetCustomerByParam">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetCustomerByParam">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Municipality" ColumnName="Municipality" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetEmployeeToComboBox" FunctionName="KoontabiDBModel.Store.Sp_GetEmployeeToComboBox">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetEmployeeToComboBox">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="ExpirationInvoiceDate" ColumnName="ExpirationInvoiceDate" />
+                <ScalarProperty Name="ReferenceInvoice" ColumnName="ReferenceInvoice" />
+                <ScalarProperty Name="DisCount" ColumnName="DisCount" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="TypeOfPayID" ColumnName="TypeOfPayID" />
+                <ScalarProperty Name="BodegaID" ColumnName="BodegaID" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetLastInvoiceNumber" FunctionName="KoontabiDBModel.Store.Sp_GetLastInvoiceNumber">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetLastInvoiceNumber">
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SpValidateIfExitRefenceInvoice" FunctionName="KoontabiDBModel.Store.SpValidateIfExitRefenceInvoice">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.SpValidateIfExitRefenceInvoice">
+                <ScalarProperty Name="ReferenceInvoice" ColumnName="ReferenceInvoice" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetLastCustomerCode" FunctionName="KoontabiDBModel.Store.Sp_GetLastCustomerCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.SpGetLastCustomerCode">
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetProductByID" FunctionName="KoontabiDBModel.Store.Sp_GetProductByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetProductByID">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProductCost" ColumnName="ProductCost" />
+                <ScalarProperty Name="KardexIn" ColumnName="KardexIn" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="UnitPrice1" ColumnName="UnitPrice1" />
+                <ScalarProperty Name="UnitPrice2" ColumnName="UnitPrice2" />
+                <ScalarProperty Name="UnitPrice3" ColumnName="UnitPrice3" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="InvoiceWithPrice" ColumnName="InvoiceWithPrice" />
+                <ScalarProperty Name="InvoiceWithoutStock" ColumnName="InvoiceWithoutStock" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="TaxID" ColumnName="TaxID" />
+                <ScalarProperty Name="KardexID" ColumnName="KardexID" />
+                <ScalarProperty Name="ProductDetailsID" ColumnName="ProductDetailsID" />
+                <ScalarProperty Name="BodegaID" ColumnName="BodegaID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="KoontabiDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="DateAdmission" ColumnName="DateAdmission" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="TaxRegistration" ColumnName="TaxRegistration" />
+                <ScalarProperty Name="BusinessRegistration" ColumnName="BusinessRegistration" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="MunicipalityID" ColumnName="MunicipalityID" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetAllCustomerRadGridShowData" FunctionName="KoontabiDBModel.Store.sp_GetAllCustomerRadGridShowData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.sp_GetAllCustomerRadGridShowData">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Addresses" ColumnName="Addresses" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Municipality" ColumnName="Municipality" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="GetInvoiceByIDViews">
+            <EntityTypeMapping TypeName="KoontabiDBModel.GetInvoiceByIDView">
+              <MappingFragment StoreEntitySet="GetInvoiceByIDView">
+                <ScalarProperty Name="ProvinceOfCustomer" ColumnName="ProvinceOfCustomer" />
+                <ScalarProperty Name="MunicipalityOfCustomer" ColumnName="MunicipalityOfCustomer" />
+                <ScalarProperty Name="EmployeeFullName" ColumnName="EmployeeFullName" />
+                <ScalarProperty Name="EmployeeDocumentIdentity" ColumnName="EmployeeDocumentIdentity" />
+                <ScalarProperty Name="CustomerTaxRegistration" ColumnName="CustomerTaxRegistration" />
+                <ScalarProperty Name="CustomerPhone1" ColumnName="CustomerPhone1" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="CustomerDocumentID" ColumnName="CustomerDocumentID" />
+                <ScalarProperty Name="CustomerCustomerCode" ColumnName="CustomerCustomerCode" />
+                <ScalarProperty Name="CustomerContactName" ColumnName="CustomerContactName" />
+                <ScalarProperty Name="CustomerCompanyName" ColumnName="CustomerCompanyName" />
+                <ScalarProperty Name="CustomerCellPhone" ColumnName="CustomerCellPhone" />
+                <ScalarProperty Name="CustomerBusinessRegistration" ColumnName="CustomerBusinessRegistration" />
+                <ScalarProperty Name="CustomerAddress2" ColumnName="CustomerAddress2" />
+                <ScalarProperty Name="CustomerAddress1" ColumnName="CustomerAddress1" />
+                <ScalarProperty Name="BodegaPhone" ColumnName="BodegaPhone" />
+                <ScalarProperty Name="BodegaIndustrialRegistration" ColumnName="BodegaIndustrialRegistration" />
+                <ScalarProperty Name="BodegaEmail" ColumnName="BodegaEmail" />
+                <ScalarProperty Name="BodegaName" ColumnName="BodegaName" />
+                <ScalarProperty Name="BodegaAddress" ColumnName="BodegaAddress" />
+                <ScalarProperty Name="TypeOfPayDescription" ColumnName="TypeOfPayDescription" />
+                <ScalarProperty Name="TaxValue" ColumnName="TaxValue" />
+                <ScalarProperty Name="TaxDescription" ColumnName="TaxDescription" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="InvoiceDetailUnitPrice" ColumnName="InvoiceDetailUnitPrice" />
+                <ScalarProperty Name="InvoiceDetailQuantity" ColumnName="InvoiceDetailQuantity" />
+                <ScalarProperty Name="InvoiceDisCount" ColumnName="InvoiceDisCount" />
+                <ScalarProperty Name="ExpirationInvoiceDate" ColumnName="ExpirationInvoiceDate" />
+                <ScalarProperty Name="ReferenceInvoice" ColumnName="ReferenceInvoice" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_DisplayAllInvoices">
+            <EntityTypeMapping TypeName="KoontabiDBModel.V_DisplayAllInvoices">
+              <MappingFragment StoreEntitySet="V_DisplayAllInvoices">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TypeOfP" ColumnName="TypeOfP" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_DisplayAllSales">
+            <EntityTypeMapping TypeName="KoontabiDBModel.V_DisplayAllSales">
+              <MappingFragment StoreEntitySet="V_DisplayAllSales">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="ITBIS" ColumnName="ITBIS" />
+                <ScalarProperty Name="DisCount" ColumnName="DisCount" />
+                <ScalarProperty Name="TypeOfP" ColumnName="TypeOfP" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAllZoneProvince" FunctionName="KoontabiDBModel.Store.GetAllZoneProvince">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.GetAllZoneProvince">
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="V_DisplayAllInvoicesByZone">
+            <EntityTypeMapping TypeName="KoontabiDBModel.V_DisplayAllInvoicesByZone">
+              <MappingFragment StoreEntitySet="V_DisplayAllInvoicesByZone">
+                <ScalarProperty Name="StateInvoice" ColumnName="StateInvoice" />
+                <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+                <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+                <ScalarProperty Name="ITBIS" ColumnName="ITBIS" />
+                <ScalarProperty Name="DisCount" ColumnName="DisCount" />
+                <ScalarProperty Name="TypeOfP" ColumnName="TypeOfP" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+                <ScalarProperty Name="Municipality" ColumnName="Municipality" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="BusinessRegistration" ColumnName="BusinessRegistration" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaidAccounts">
+            <EntityTypeMapping TypeName="KoontabiDBModel.PaidAccount">
+              <MappingFragment StoreEntitySet="PaidAccounts">
+                <ScalarProperty Name="AmountPending" ColumnName="AmountPending" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="DayDelay" ColumnName="DayDelay" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="DateEmit" ColumnName="DateEmit" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="PaidAccountID" ColumnName="PaidAccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_GET_STATUS" FunctionName="KoontabiDBModel.Store.SP_GET_STATUS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.SP_GET_STATUS">
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="PaidAccountDetails">
+            <EntityTypeMapping TypeName="KoontabiDBModel.PaidAccountDetail">
+              <MappingFragment StoreEntitySet="PaidAccountDetails">
+                <ScalarProperty Name="RefNumberInvoicePay" ColumnName="RefNumberInvoicePay" />
+                <ScalarProperty Name="DatePayment" ColumnName="DatePayment" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Concept" ColumnName="Concept" />
+                <ScalarProperty Name="PaidAccountID" ColumnName="PaidAccountID" />
+                <ScalarProperty Name="PaidAccountDetailID" ColumnName="PaidAccountDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sp_ValidateRefNumberInvoicePay" FunctionName="KoontabiDBModel.Store.Sp_ValidateRefNumberInvoicePay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_ValidateRefNumberInvoicePay">
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_ValidateInvoiceOldByPay" FunctionName="KoontabiDBModel.Store.Sp_ValidateInvoiceOldByPay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_ValidateInvoiceOldByPay">
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetAllInvoicesOverDue" FunctionName="KoontabiDBModel.Store.Sp_GetAllInvoicesOverDue">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetAllInvoicesOverDue">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="Municipality" ColumnName="Municipality" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_GetAllInvoicesDetailsOverDue" FunctionName="KoontabiDBModel.Store.Sp_GetAllInvoicesDetailsOverDue">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KoontabiDBModel.Sp_GetAllInvoicesDetailsOverDue">
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="DateEmit" ColumnName="DateEmit" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="AmountPending" ColumnName="AmountPending" />
+                <ScalarProperty Name="DayDelay" ColumnName="DayDelay" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="LastPayment" ColumnName="LastPayment" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{607E3CB6-4C6E-429D-8DAF-183DAFBC3F38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Koontabi.Domain</RootNamespace>
+    <AssemblyName>Koontabi.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bodega.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerState.cs" />
+    <Compile Include="Employee.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetAllZoneProvince.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetInvoiceByIDView.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDetail.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDetailGridModel.cs" />
+    <Compile Include="Kardex.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KardexGridModel.cs" />
+    <Compile Include="KoontabiEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Municipality.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaidAccount.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaidAccountDetail.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartialCustomer.cs" />
+    <Compile Include="PartialKardex.cs" />
+    <Compile Include="PartialMunicipality.cs" />
+    <Compile Include="PartialProduct.cs" />
+    <Compile Include="PartialProductDetail.cs" />
+    <Compile Include="PartialProvince.cs" />
+    <Compile Include="Product.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetail.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInventory.cs" />
+    <Compile Include="ProductToSearch.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Province.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpGetLastCustomerCode.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpValidateIfExitRefenceInvoice.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_ExitCustomerCode.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetAllBodega.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetAllCategories.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetAllCustomerRadGridShowData.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetAllInvoicesDetailsOverDue.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetAllInvoicesOverDue.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_getAllMunicipalitiesById.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetAllProducts.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_getAllProvinces.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetCategories.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetCustomerByParam.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetEmployeeToComboBox.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetLastInvoiceNumber.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetProductByID.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_GetUnits.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GET_STATUS.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_Taxes.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_TypeOfPay.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_ValidateInvoiceOldByPay.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_ValidateProductCodeIfExit.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sp_ValidateRefNumberInvoicePay.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tax.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeOfPay.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Unit.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DisplayAllInvoices.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DisplayAllInvoicesByZone.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="V_DisplayAllSales.cs">
+      <DependentUpon>KoontabiEntityModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KoontabiEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KoontabiEntityModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
